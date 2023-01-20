@@ -13,6 +13,9 @@ public class Addition {
 	public void method1() {
 		System.out.println(a);
 	}
+	public void method2() {
+		System.out.println(a);
+	}
 	
 	public static void main(String[] args) {
 		Addition addition = new Addition();
