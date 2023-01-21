@@ -5,6 +5,8 @@ public class Add {
 		int add,a=5,b=89;
 		add=a+b;
 		System.out.println("the sum is"+add);
+		System.out.println("the sum is"+add);
+		
 	}
 	
 	}
