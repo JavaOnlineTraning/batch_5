@@ -4,6 +4,7 @@ public class Addition {
 
 	int a;
 	static int b;
+	int c;
 
 	public void method() {
 		int c =10;
