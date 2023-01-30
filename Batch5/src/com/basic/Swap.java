@@ -15,7 +15,7 @@ public class Swap {
 		b =a-b;
 		a= a-b;
 		System.out.println("After swapping Number:" + a +" "+b);
-		System.out.println();
+		System.out.println();;
 
 	}
 
