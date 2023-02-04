@@ -1,5 +1,7 @@
 package com.patient.patientservice.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +15,7 @@ import com.patient.patientservice.repository.PatientRepository;
 public class PatientServiceImpl implements PatientService {
 	// service layer
 
-	@Autowired
+	@Autowired 
 	private PatientRepository patientRepo;
 
 	@Override
@@ -29,5 +31,14 @@ public class PatientServiceImpl implements PatientService {
 		patientRepo.saveAndFlush(patientEntity);
 
 		return new ResponseEntity<>("Record Inserted", HttpStatus.OK);
+	}
+
+	@Override
+	public List<PatientEntity> getAllPatient() {
+
+		//database call to get all patients
+		List<PatientEntity> patientList = patientRepo.findAll();
+		
+		return patientList;
 	}
 }
