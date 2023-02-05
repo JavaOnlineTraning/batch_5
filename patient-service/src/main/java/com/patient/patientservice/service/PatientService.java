@@ -11,9 +11,8 @@ public interface PatientService {
 
 	ResponseEntity<String> addPatientToDB(PatientDTO patientDTO);
 
-	
 	List<PatientEntity> getAllPatient();
-	
-	
+
+	PatientEntity getPatientById(int patientId);
 
 }

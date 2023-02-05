@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +37,13 @@ public class PatientController {
 		List<PatientEntity> patientList = patientService.getAllPatient();
 		// returning responseEntity obj as body
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(patientList);
+	}
+
+	// get patient by Id
+	@GetMapping(value = "/patient/{patientId}")
+	public ResponseEntity<PatientEntity> getPatientById(@PathVariable("patientId") int patientId) {
+		PatientEntity entity = patientService.getPatientById(patientId);
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(entity);
 	}
 
 }

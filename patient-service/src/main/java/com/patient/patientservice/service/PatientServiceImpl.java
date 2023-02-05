@@ -1,6 +1,7 @@
 package com.patient.patientservice.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,7 @@ import com.patient.patientservice.repository.PatientRepository;
 public class PatientServiceImpl implements PatientService {
 	// service layer
 
-	@Autowired 
+	@Autowired
 	private PatientRepository patientRepo;
 
 	@Override
@@ -36,9 +37,18 @@ public class PatientServiceImpl implements PatientService {
 	@Override
 	public List<PatientEntity> getAllPatient() {
 
-		//database call to get all patients
+		// database call to get all patients
 		List<PatientEntity> patientList = patientRepo.findAll();
-		
+
 		return patientList;
+	}
+
+	@Override
+	public PatientEntity getPatientById(int patientId) {
+		// get patient by Id
+		PatientEntity patientEntity = patientRepo.findById(patientId).get();
+//		 Optional<PatientEntity> findById = patientRepo.findById(patientId);
+//		 PatientEntity patientEntity2 = findById.get();
+		 return patientEntity;
 	}
 }
