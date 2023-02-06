@@ -15,4 +15,8 @@ public interface PatientService {
 
 	PatientEntity getPatientById(int patientId);
 
+	PatientDTO updatePatientByID(int patientId, PatientEntity patientEntity);
+	
+	void deletePatientById(int patientId);
+
 }

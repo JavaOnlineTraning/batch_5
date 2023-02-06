@@ -49,6 +49,30 @@ public class PatientServiceImpl implements PatientService {
 		PatientEntity patientEntity = patientRepo.findById(patientId).get();
 //		 Optional<PatientEntity> findById = patientRepo.findById(patientId);
 //		 PatientEntity patientEntity2 = findById.get();
-		 return patientEntity;
+		return patientEntity;
+	}
+
+	@Override
+	public PatientDTO updatePatientByID(int patientId, PatientEntity patientEntity) {
+
+		patientEntity.setId(patientId);
+		PatientEntity entity = patientRepo.save(patientEntity);
+
+		PatientDTO dto = new PatientDTO();
+		dto.setId(entity.getId());
+		dto.setPatientAge(entity.getPatientAge());
+		dto.setPatientDisease(entity.getPatientDisease());
+		dto.setPatientDOB(entity.getPatientDOB());
+		dto.setPatientName(entity.getPatientName());
+		if (entity.getPatientName().equalsIgnoreCase("Kishor D")) {
+			dto.setPatientName("Kishor JAVA");
+		}
+		return dto;
+	}
+
+	@Override
+	public void deletePatientById(int patientId) {
+
+		patientRepo.deleteById(patientId);
 	}
 }
