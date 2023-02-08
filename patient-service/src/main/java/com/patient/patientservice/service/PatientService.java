@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.patient.patientservice.dto.PatientDTO;
 import com.patient.patientservice.entities.PatientEntity;
+import com.patient.patientservice.exception.PatientServiceException;
 
 public interface PatientService {
 
@@ -13,7 +14,7 @@ public interface PatientService {
 
 	List<PatientEntity> getAllPatient();
 
-	PatientEntity getPatientById(int patientId);
+	PatientEntity getPatientById(int patientId) throws PatientServiceException;
 
 	PatientDTO updatePatientByID(int patientId, PatientEntity patientEntity);
 	

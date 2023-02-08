@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.patient.patientservice.dto.PatientDTO;
 import com.patient.patientservice.entities.PatientEntity;
+import com.patient.patientservice.exception.PatientServiceException;
 import com.patient.patientservice.repository.PatientRepository;
 
 @Service
@@ -44,11 +45,14 @@ public class PatientServiceImpl implements PatientService {
 	}
 
 	@Override
-	public PatientEntity getPatientById(int patientId) {
+	public PatientEntity getPatientById(int patientId) throws PatientServiceException {
 		// get patient by Id
-		PatientEntity patientEntity = patientRepo.findById(patientId).get();
-//		 Optional<PatientEntity> findById = patientRepo.findById(patientId);
-//		 PatientEntity patientEntity2 = findById.get();
+		// PatientEntity patientEntity = patientRepo.findById(patientId).get();
+		Optional<PatientEntity> findById = patientRepo.findById(patientId);
+		PatientEntity patientEntity = findById.orElse(null);
+		if (patientEntity == null) {
+			throw new PatientServiceException("101", "Invalid Patient ID");
+		}
 		return patientEntity;
 	}
 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.patient.patientservice.dto.PatientDTO;
 import com.patient.patientservice.entities.PatientEntity;
+import com.patient.patientservice.exception.PatientServiceException;
 import com.patient.patientservice.service.PatientService;
 
 @RestController
@@ -45,7 +46,7 @@ public class PatientController {
 
 	// get patient by Id
 	@GetMapping(value = "/{patientId}")
-	public ResponseEntity<PatientEntity> getPatientById(@PathVariable("patientId") int patientId) {
+	public ResponseEntity<PatientEntity> getPatientById(@PathVariable("patientId") int patientId) throws PatientServiceException {
 		PatientEntity entity = patientService.getPatientById(patientId);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(entity);
 	}
