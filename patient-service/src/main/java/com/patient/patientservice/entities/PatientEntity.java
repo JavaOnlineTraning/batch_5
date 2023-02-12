@@ -1,6 +1,5 @@
 package com.patient.patientservice.entities;
 
-
 import java.sql.Date;
 
 import jakarta.persistence.Entity;
@@ -59,6 +58,18 @@ public class PatientEntity {
 
 	public void setPatientAge(int patientAge) {
 		this.patientAge = patientAge;
+	}
+
+	public PatientEntity(int id, String patientName, String patientDisease, Date patientDOB, int patientAge) {
+		this.id = id;
+		this.patientName = patientName;
+		this.patientDisease = patientDisease;
+		this.patientDOB = patientDOB;
+		this.patientAge = patientAge;
+	}
+
+	public PatientEntity() {
+
 	}
 
 }
