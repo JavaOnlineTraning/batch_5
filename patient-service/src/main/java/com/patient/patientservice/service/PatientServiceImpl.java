@@ -85,7 +85,10 @@ public class PatientServiceImpl implements PatientService {
 		return a+b;
 	}
 	
-	
+	public double mul(int a,int b) {
+		return a*b;
+	}
+
 	
 	
 }
