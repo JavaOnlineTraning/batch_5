@@ -79,4 +79,13 @@ public class PatientServiceImpl implements PatientService {
 
 		patientRepo.deleteById(patientId);
 	}
+	
+	
+	public double sum(int a,int b) {
+		return a+b;
+	}
+	
+	
+	
+	
 }
