@@ -80,6 +80,20 @@ public class PatientServiceImpl implements PatientService {
 		patientRepo.deleteById(patientId);
 	}
 	
+	@Override
+	public boolean checkingAgeChild(int patientAge) {
+		// TODO Auto-generated method stub
+		if(patientAge<16)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
 	
 	public double sum(int a,int b) {
 		return a+b;

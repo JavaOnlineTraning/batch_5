@@ -20,4 +20,6 @@ public interface PatientService {
 	
 	void deletePatientById(int patientId);
 
+	boolean checkingAgeChild(int patientAge);
+
 }
