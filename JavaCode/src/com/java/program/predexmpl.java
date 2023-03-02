@@ -1,7 +1,9 @@
 package com.java.program;
 
 import java.util.ArrayList;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 class Employee {
 
@@ -31,12 +33,18 @@ public class predexmpl {
 
 		Predicate<Employee> p1 = e -> e.salary > 10000;
 		 //Predicate<Employee> p2 = e -> e.name.length()>4;
+		Function<Employee,Double> f= e->e.salary+5000;
+		Consumer<Employee> consumer =e->System.out.println(e.name + ":" +f.apply(e));
+//		Supplier<Employee> s=()-> new Employee("ankush", 30000);
+//		Employee employee = s.get(salary);
+//		System.out.println(employee);
 
 		for (Employee e1 : arrayList) {
-			 if (p1.negate().test(e1))
+			 if (p1.test(e1))
 			//if (p2.test(e1)) {
 				{
-					System.out.println(e1.name + ":" + e1.salary);
+				 
+					consumer.accept(e1);
 				}
 
 			}
@@ -44,4 +52,5 @@ public class predexmpl {
 		}
 
 	}
+
 

@@ -8,7 +8,7 @@ public class FuctionInterf {
 		// TODO Auto-generated method stub
 
 		
-		Function<String,String> f=s->s.toUpperCase();
+		Function<String,Integer> f=s->s.length();
                      System.out.println(f.apply("pradeep"));                   
 		
 		
